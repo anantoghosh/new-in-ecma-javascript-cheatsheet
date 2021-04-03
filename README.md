@@ -45,3 +45,24 @@ a ?? (a = b);
 ✅ Firefox - Since v79  
 ✅ Safari - Since v14  
 https://caniuse.com/?search=Logical%20Assignment%20Operators
+
+### [WeakRefs [new object]](https://github.com/tc39/proposal-weakrefs)
+
+**A WeakRef object lets you hold a weak reference to another object, without preventing that object from getting garbage-collected.**  
+Related: [FinalizationRegistry](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry)
+
+```js
+const ref = new WeakRef(someObject);
+// Try to reference the original object
+const obj = ref.deref();
+if (obj) {
+  console.log('The obj is available.');
+} else {
+  console.log('The obj has been removed.');
+}
+```
+*Cannot be polyfilled*  
+✅ Chrome - Since v84  
+✅ Firefox - Since v79  
+⛔ Safari  
+[CanIUse](https://caniuse.com/mdn-javascript_builtins_weakref)
