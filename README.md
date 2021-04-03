@@ -1,8 +1,8 @@
 # new-in-ecma-javascript-cheatsheet
 
-## ECMAScript 2021
+## ECMAScript 2021 - 5 new features
 
-### [Numeric separators [new syntax]](https://github.com/tc39/proposal-numeric-separator)
+### [1. Numeric separators [new syntax]](https://github.com/tc39/proposal-numeric-separator)
 
 **Allow making numbers more readable by separating it with `_` (underscore)**
 
@@ -20,7 +20,7 @@ let budget = 1_000_000_000_000;
 ✅ Node - Since v12.5.0  
 [CanIUse](https://caniuse.com/mdn-javascript_grammar_numeric_separators)
 
-### [Logical Assignment Operators [new syntax]](https://github.com/tc39/proposal-logical-assignment)
+### [2. Logical Assignment Operators [new syntax]](https://github.com/tc39/proposal-logical-assignment)
 
 **Combine Logical Operators and Assignment Expressions**
 
@@ -46,9 +46,9 @@ a ?? (a = b);
 ✅ Firefox - Since v79  
 ✅ Safari - Since v14  
 ✅ [Node - Since v15.0.0](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V15.md#v8-86---35415)  
-https://caniuse.com/?search=Logical%20Assignment%20Operators
+[CanIUse](https://caniuse.com/?search=Logical%20Assignment%20Operators)
 
-### [WeakRefs [new object]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)
+### [3. WeakRefs [new object]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)
 
 **A WeakRef object lets you hold a weak reference to another object, without preventing that object from getting garbage-collected.**  
 Related: [FinalizationRegistry](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry)
@@ -70,7 +70,7 @@ if (obj) {
 [CanIUse](https://caniuse.com/mdn-javascript_builtins_weakref)  
 _Cannot be polyfilled_  
 
-### [Promise.any [new method]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)
+### [4. Promise.any [new method]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)
 
 **Takes a list of Promises (or iterable) and as soon as one of the promises fulfills(resolves), returns a single promise that resolves with the value from that promise. If no promise fulfills (if all of the given promises are rejected), then the returned promise is rejected with an AggregateError.**
 
@@ -91,3 +91,18 @@ Promise.any(promises).then((value) => console.log(value));
 ✅ [Node - Since v15.0.0](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V15.md#v8-86---35415)  
 [CanIUse](https://caniuse.com/?search=promise.any)  
 [Polyfill](https://github.com/zloirock/core-js#ecmascript-promise)  
+
+### [5. String.prototype.replaceAll [new method]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll)
+
+**Replace all instances of a substring (literal or regexp) in a string**
+
+```js
+const queryString = 'q=query+string+parameters';
+const withSpaces = queryString.replaceAll('+', ' ');
+```
+✅ Chrome - Since v85  
+✅ Firefox - Since v77  
+✅ Safari - Since v13.1  
+✅ [Node - Since v15.0.0](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V15.md#v8-86---35415)  
+[CanIUse](https://caniuse.com/mdn-javascript_builtins_string_replaceall)  
+[Polyfill](https://github.com/zloirock/core-js#stringreplaceall)  
