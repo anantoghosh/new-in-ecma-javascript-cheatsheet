@@ -4,7 +4,7 @@
 
 ### [1. Numeric separators [new syntax]](https://github.com/tc39/proposal-numeric-separator)
 
-**Allow making numbers more readable by separating it with `_` (underscore)**
+Allow making numbers more readable by separating it with `_` (underscore)
 
 ```js
 let budget = 1_000_000_000_000;
@@ -22,7 +22,7 @@ let budget = 1_000_000_000_000;
 
 ### [2. Logical Assignment Operators [new syntax]](https://github.com/tc39/proposal-logical-assignment)
 
-**Combine Logical Operators and Assignment Expressions**
+Combine Logical Operators and Assignment Expressions
 
 ```js
 // "Or Or Equals"
@@ -50,7 +50,7 @@ a ?? (a = b);
 
 ### [3. WeakRefs [new object]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)
 
-**A WeakRef object lets you hold a weak reference to another object, without preventing that object from getting garbage-collected.**  
+A WeakRef object lets you hold a weak reference to another object, without preventing that object from getting garbage-collected.  
 Related: [FinalizationRegistry](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry)
 
 ```js
@@ -73,7 +73,7 @@ _Cannot be polyfilled_
 
 ### [4. Promise.any [new method]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)
 
-**Takes a list of Promises (or iterable) and as soon as one of the promises fulfills(resolves), returns a single promise that resolves with the value from that promise. If no promise fulfills (if all of the given promises are rejected), then the returned promise is rejected with an AggregateError.**
+Takes a list of Promises (or iterable) and as soon as one of the promises fulfills(resolves), returns a single promise that resolves with the value from that promise. If no promise fulfills (if all of the given promises are rejected), then the returned promise is rejected with an AggregateError.
 
 ```js
 const promise1 = Promise.reject(0);
@@ -96,7 +96,7 @@ Promise.any(promises).then((value) => console.log(value));
 
 ### [5. String.prototype.replaceAll [new method]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll)
 
-**Replace all instances of a substring (literal or regexp) in a string**
+Replace all instances of a substring (literal or regexp) in a string
 
 ```js
 const queryString = 'q=query+string+parameters';
@@ -133,7 +133,7 @@ console.log(import.meta); // { url: "<url>" }
 [CanIUse](https://caniuse.com/mdn-javascript_statements_import_meta)  
 
 ### [2. Nullish coalescing Operator [new syntax]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
-**The nullish coalescing operator (??) is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.**
+The nullish coalescing operator (??) is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
 
 ```js
 let x = foo ?? bar();
@@ -149,11 +149,11 @@ let x = (foo !== null && foo !== undefined) ? foo : bar();
 ✅ Chrome - Since v80  
 ✅ Firefox - Since v72  
 ✅ Safari - Since v13.1 (iOS Safari v13.7)  
-✅ Node - Since v14.0.0 
+✅ Node - Since v14.0.0  
 [CanIUse](https://caniuse.com/mdn-javascript_operators_nullish_coalescing)  
 
 ### Optional Chaining [new syntax]
-**The ?. operator functions similarly to the . chaining operator, except that instead of causing an error if a reference is nullish (null or undefined), the expression short-circuits with a return value of undefined.**
+The ?. operator functions similarly to the . chaining operator, except that instead of causing an error if a reference is nullish (null or undefined), the expression short-circuits with a return value of undefined.
 ```js
 let x = foo?.bar.baz();
 
@@ -195,7 +195,7 @@ function canMakeHTTPRequest() {
 [CanIUse](https://caniuse.com/mdn-javascript_builtins_globalthis)  
 
 ### [Promise.allSettled [new method]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
-**Promise.allSettled is a new Promise method that returns a Promise that is fulfilled when all of the input promises are fulfilled or rejected.**
+Promise.allSettled is a new Promise method that returns a Promise that is fulfilled when all of the input promises are fulfilled or rejected.
 
 ```js
 const promises = [ fetch('index.html'), fetch('https://does-not-exist/') ];
@@ -213,7 +213,7 @@ const successfulPromises = results.filter(p => p.status === 'fulfilled');
 
 ### BigInt
 
-**The BigInt type is a new numeric primitive in ECMAScript, which is a signed integer type.**  
+The BigInt type is a new numeric primitive in ECMAScript, which is a signed integer type.  
 BigInt would dynamically resize memory to fit the actual value.  
 The maximum size of BigInt is unspecified and left to the implementation.  
 [https://stackoverflow.com/a/54298760](https://stackoverflow.com/a/54298760)  
