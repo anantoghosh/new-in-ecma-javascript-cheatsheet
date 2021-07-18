@@ -66,7 +66,7 @@ if (obj) {
 
 ✅ Chrome - Since v84  
 ✅ Firefox - Since v79  
-⛔ Safari  
+✅ Safari - Since v14 (iOS Safari v14.7)  
 ✅ [Node - Since v14.6.0](https://v8.dev/blog/v8-release-84#weak-references-and-finalizers)  
 [CanIUse](https://caniuse.com/mdn-javascript_builtins_weakref)  
 _Cannot be polyfilled_
@@ -152,7 +152,7 @@ let x = (foo !== null && foo !== undefined) ? foo : bar();
 ✅ Node - Since v14.0.0  
 [CanIUse](https://caniuse.com/mdn-javascript_operators_nullish_coalescing)  
 
-### Optional Chaining [new syntax]
+### [Optional Chaining [new syntax]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 The ?. operator functions similarly to the . chaining operator, except that instead of causing an error if a reference is nullish (null or undefined), the expression short-circuits with a return value of undefined.
 ```js
 let x = foo?.bar.baz();
@@ -173,7 +173,8 @@ myForm.checkValidity?.()
 ✅ Safari - Since v13.1 (iOS Safari v13.7)  
 ✅ Node - Since v14.0.0  
 [CanIUse](https://caniuse.com/mdn-javascript_operators_optional_chaining)  
-### for-in mechanics [new behavior]
+
+### [for-in mechanics [new behavior]](https://github.com/tc39/proposal-for-in-order)
 Standardize the order of for-in loops.
 
 ### [globalThis [new object]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis)
@@ -211,7 +212,7 @@ const successfulPromises = results.filter(p => p.status === 'fulfilled');
 [Polyfill](https://github.com/zloirock/core-js#ecmascript-promise)  
 [CanIUse](https://caniuse.com/mdn-javascript_builtins_promise_allsettled)  
 
-### BigInt
+### [BigInt [new object]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
 
 The BigInt type is a new numeric primitive in ECMAScript, which is a signed integer type.  
 BigInt would dynamically resize memory to fit the actual value.  
@@ -234,9 +235,44 @@ const huge = BigInt(9007199254740991)
 _Cannot be polyfilled_
 
 
-### import()
+### [import() [new method]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports)
+Dynamic imports allows you to import modules at run-time.
 
-### String.prototype.matchAll
+```js
+import('/modules/my-module.js')
+      .then(module => {
+        module.loadPageInto(main);
+      })
+      .catch(err => {
+        main.textContent = err.message;
+      });
+```
+✅ [Babel](https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import)  
+✅ [Typescript - Since v2.4](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-4.html)  
+✅ [SWC](https://swc.rs/docs/comparison-babel)  
+✅ [Sucrase](https://github.com/alangpierce/sucrase#transforms)  
+✅ Chrome - Since v63  
+✅ Firefox - Since v67  
+✅ Safari - Since v11.1 (iOS Safari v11.3)   
+✅ Node - Since v13.2.0, [later enabled in v12.17.0](https://nodejs.org/en/blog/release/v12.17.0/)  
+[CanIUse](https://caniuse.com/es6-module-dynamic-import)  
+
+### [String.prototype.matchAll [new method]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll)
+`matchAll` returns a array of matches matching a string or regex.
+
+```js
+const regexp = /t(e)(st(\d?))/g;
+const str = 'test1test2';
+
+str.matchAll(regexp)
+```
+
+✅ [Typescript lib - Since v3.8](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#es2020-for-target-and-module)  
+✅ Chrome - Since v63  
+✅ Firefox - Since v67  
+✅ Safari - Since v11.1 (iOS Safari v11.3)   
+✅ Node - Since v13.2.0, [later enabled in v12.17.0](https://nodejs.org/en/blog/release/v12.17.0/)  
+[CanIUse](https://caniuse.com/mdn-javascript_builtins_string_matchall)  
 
 ## ECMAScript 2019 - 8 new features
 
