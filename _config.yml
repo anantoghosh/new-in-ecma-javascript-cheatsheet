@@ -1,7 +1,5 @@
 remote_theme: pmarsceill/just-the-docs
 color_scheme: theme
-search:
-  heading_level: 3
 aux_links:
   "GitHub":
     - "https://github.com/anantoghosh/new-in-ecma-javascript-cheatsheet"
