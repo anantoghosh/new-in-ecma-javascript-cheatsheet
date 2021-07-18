@@ -4,45 +4,45 @@
   z-index: 1;
 }
 
-@include mq(md) {
-  .custom-layout {
-    display: flex;
-  }
+// @include mq(md) {
+//   .custom-layout {
+//     display: flex;
+//   }
 
-  .main {
-    margin-left: 0;
-  }
+//   .main {
+//     margin-left: 0;
+//   }
 
-  .side-bar {
-    width: auto;
-  }
+//   .side-bar {
+//     width: auto;
+//   }
 
-  .site-nav,
-  .site-header,
-  .site-footer {
-    width: auto;
-  }
-}
+//   .site-nav,
+//   .site-header,
+//   .site-footer {
+//     width: auto;
+//   }
+// }
 
-@include mq(lg) {
-  .main {
-    margin-left: 0;
-  }
+// @include mq(lg) {
+//   .main {
+//     margin-left: 0;
+//   }
 
-  .side-bar {
-    width: auto;
-    min-width: auto;
-    align-items: center;
-  }
-}
+//   .side-bar {
+//     width: auto;
+//     min-width: auto;
+//     align-items: center;
+//   }
+// }
 
-@include mq(sm) {
-  .side-bar {
-    position: sticky;
-    top: 0;
-  }
-}
+// @include mq(sm) {
+//   .side-bar {
+//     position: sticky;
+//     top: 0;
+//   }
+// }
 
-.side-bar {
-  max-height: 100vh;
-}
+// .side-bar {
+//   max-height: 100vh;
+// }
