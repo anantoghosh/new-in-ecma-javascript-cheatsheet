@@ -35,3 +35,14 @@
     align-items: center;
   }
 }
+
+@include mq(sm) {
+  .side-bar {
+    position: sticky;
+    top: 0;
+  }
+}
+
+.side-bar {
+  max-height: 100vh;
+}
