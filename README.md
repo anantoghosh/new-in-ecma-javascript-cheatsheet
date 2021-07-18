@@ -1,4 +1,8 @@
 # What's new in ECMA / JavaScript cheat sheet
+{: .no_toc }
+
+1. TOC
+{:toc}
 
 ## ECMAScript 2021 - 5 new features
 
