@@ -1,5 +1,37 @@
 .main-header {
-    position: sticky;
-    top: 0;
-    z-index: 1;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
+
+// @include mq(md) {
+//   .custom-layout {
+//     display: flex;
+//   }
+
+//   .main {
+//     margin-left: 0;
+//   }
+
+//   .side-bar {
+//     width: auto;
+//   }
+
+//   .site-nav,
+//   .site-header,
+//   .site-footer {
+//     width: auto;
+//   }
+// }
+
+// @include mq(lg) {
+//   .main {
+//     margin-left: 0;
+//   }
+
+//   .side-bar {
+//     width: auto;
+//     min-width: auto;
+//     align-items: center;
+//   }
+// }
