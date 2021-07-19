@@ -1,7 +1,7 @@
 remote_theme: pmarsceill/just-the-docs
 color_scheme: theme
 aux_links:
-  "GitHub":
+  "Star on GitHub":
     - "https://github.com/anantoghosh/new-in-ecma-javascript-cheatsheet"
 aux_links_new_tab: true
 # Enable or disable the site search

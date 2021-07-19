@@ -18,17 +18,15 @@
 //   }
 // }
 
-// @include mq(lg) {
-//   .main {
-//     margin-left: 0;
-//   }
+@include mq(lg) {
+  .main {
+    margin-left: $nav-width-md;
+  }
 
-//   .side-bar {
-//     width: auto;
-//     min-width: auto;
-//     align-items: center;
-//   }
-// }
+  .side-bar {
+    width: $nav-width-md;
+  }
+}
 
 // @include mq(sm) {
 //   .side-bar {
