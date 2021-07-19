@@ -3,8 +3,7 @@
 ## ECMAScript 2021 - 5 new features
 
 ### 1. Numeric separators [new syntax]
-[MDN](https://github.com/tc39/proposal-numeric-separator)
-
+[MDN](https://github.com/tc39/proposal-numeric-separator)  
 Allow making numbers more readable by separating it with `_` (underscore)
 
 ```js
@@ -22,8 +21,7 @@ let budget = 1_000_000_000_000;
 [CanIUse](https://caniuse.com/MDN-javascript_grammar_numeric_separators)
 
 ### 2. Logical Assignment Operators [new syntax]
-[MDN](https://github.com/tc39/proposal-logical-assignment)
-
+[MDN](https://github.com/tc39/proposal-logical-assignment)  
 Combine Logical Operators and Assignment Expressions
 
 ```js
@@ -51,8 +49,7 @@ a ?? (a = b);
 [CanIUse](https://caniuse.com/?search=Logical%20Assignment%20Operators)
 
 ### 3. WeakRefs [new object]
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)
-
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)  
 A WeakRef object lets you hold a weak reference to another object, without preventing that object from getting garbage-collected.  
 Related: [FinalizationRegistry](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry)
 
@@ -75,8 +72,7 @@ if (obj) {
 _Cannot be polyfilled_
 
 ### 4. Promise.any [new method]
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)
-
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)  
 Takes a list of Promises (or iterable) and as soon as one of the promises fulfills(resolves), returns a single promise that resolves with the value from that promise. If no promise fulfills (if all of the given promises are rejected), then the returned promise is rejected with an AggregateError.
 
 ```js
@@ -99,8 +95,7 @@ Promise.any(promises).then((value) => console.log(value));
 [Polyfill](https://github.com/zloirock/core-js#ecmascript-promise)
 
 ### 5. String.prototype.replaceAll [new method]
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll)
-
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll)  
 Replace all instances of a substring (literal or regexp) in a string
 
 ```js
@@ -118,7 +113,7 @@ const withSpaces = queryString.replaceAll('+', ' ');
 ## ECMAScript 2020 - 9 new features
 
 ### 1. import.meta [new object]
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import.meta)
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import.meta)  
 The `import.meta` is a special object which contains metadata of the currently running JavaScript module.  
 `import` is not an object, only `import.meta` is an object. This object is mutable and can be used to store arbitrary information.  
 [Example usage in deno.](https://deno.land/manual/examples/module_metadata)  
@@ -139,8 +134,8 @@ console.log(import.meta); // { url: "<url>" }
 [CanIUse](https://caniuse.com/MDN-javascript_statements_import_meta)  
 
 ### 2. Nullish coalescing Operator [new syntax]
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
-The nullish coalescing operator (??) is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)  
+The nullish coalescing operator `??` is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
 
 ```js
 let x = foo ?? bar();
@@ -160,8 +155,8 @@ let x = (foo !== null && foo !== undefined) ? foo : bar();
 [CanIUse](https://caniuse.com/MDN-javascript_operators_nullish_coalescing)  
 
 ### Optional Chaining [new syntax]
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-The ?. operator functions similarly to the . chaining operator, except that instead of causing an error if a reference is nullish (null or undefined), the expression short-circuits with a return value of undefined.
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)  
+The `?.` operator functions similarly to the `.` chaining operator, except that instead of causing an error if a reference is nullish (null or undefined), the expression short-circuits with a return value of undefined.
 ```js
 let x = foo?.bar.baz();
 
@@ -182,10 +177,12 @@ myForm.checkValidity?.()
 ✅ Node - Since v14.0.0  
 [CanIUse](https://caniuse.com/MDN-javascript_operators_optional_chaining)  
 
-### [for-in mechanics [new behavior]](https://github.com/tc39/proposal-for-in-order)
+### `for-in` mechanics [new behavior]
+[Proposal](https://github.com/tc39/proposal-for-in-order)  
 Standardize the order of for-in loops.
 
-### [globalThis [new object]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis)
+### globalThis [new object]
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis)  
 Standard way to access the global object in all JavaScript environments (window in Browser, global in Node).
 
 ```js
@@ -204,8 +201,8 @@ function canMakeHTTPRequest() {
 [CanIUse](https://caniuse.com/MDN-javascript_builtins_globalthis)  
 
 ### Promise.allSettled [new method]
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
-Promise.allSettled is a new Promise method that returns a Promise that is fulfilled when all of the input promises are fulfilled or rejected.
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)  
+`Promise.allSettled` is a new Promise method that returns a Promise that is fulfilled when all of the input promises are fulfilled or rejected.
 
 ```js
 const promises = [ fetch('index.html'), fetch('https://does-not-exist/') ];
@@ -222,9 +219,8 @@ const successfulPromises = results.filter(p => p.status === 'fulfilled');
 [CanIUse](https://caniuse.com/MDN-javascript_builtins_promise_allsettled)  
 
 ### BigInt [new object]
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
-
-The BigInt type is a new numeric primitive in ECMAScript, which is a signed integer type.  
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)  
+The `BigInt` type is a new numeric primitive in ECMAScript, which is a signed integer type.  
 BigInt would dynamically resize memory to fit the actual value.  
 The maximum size of BigInt is unspecified and left to the implementation.  
 [https://stackoverflow.com/a/54298760](https://stackoverflow.com/a/54298760)  
@@ -246,7 +242,7 @@ _Cannot be polyfilled_
 
 
 ### import() [new method]
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports)
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports)  
 Dynamic imports allows you to import modules at run-time.
 
 ```js
@@ -269,7 +265,7 @@ import('/modules/my-module.js')
 [CanIUse](https://caniuse.com/es6-module-dynamic-import)  
 
 ### String.prototype.matchAll [new method]
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll)
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll)  
 `matchAll` returns a array of matches matching a string or regex.
 
 ```js
