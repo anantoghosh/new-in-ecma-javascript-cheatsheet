@@ -1,22 +1,10 @@
-// @include mq(md) {
-//   .custom-layout {
-//     display: flex;
-//   }
+.site-nav {
+  ul ul {
+    padding-left: 18px;
+  }
 
-//   .main {
-//     margin-left: 0;
-//   }
-
-//   .side-bar {
-//     width: auto;
-//   }
-
-//   .site-nav,
-//   .site-header,
-//   .site-footer {
-//     width: auto;
-//   }
-// }
+  padding-top: 26px;
+}
 
 @include mq(lg) {
   .main {
@@ -27,14 +15,3 @@
     width: $nav-width-md;
   }
 }
-
-// @include mq(sm) {
-//   .side-bar {
-//     position: sticky;
-//     top: 0;
-//   }
-// }
-
-// .side-bar {
-//   max-height: 100vh;
-// }
