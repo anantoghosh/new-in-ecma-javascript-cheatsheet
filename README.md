@@ -1,5 +1,104 @@
 # What's new in ECMA / JavaScript cheat sheet
 
+## ECMAScript 2022 - 4 Finished proposals
+### 1. Class Fields
+[v8.dev](https://v8.dev/features/class-fields) • [MDN-1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields) • [MDN-2](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)  
+#### Class Instance Fields
+[Proposal](https://github.com/tc39/proposal-class-fields)
+Declare fields (`this.variable`) outside constructor. Create private fields which
+cannot be accessed from outside the class.
+
+```js
+class Fields {
+  x = 0;
+  #y = 0;
+
+  constructor() {
+    this.x = 0;
+    this.#y = 1;
+  }
+}
+
+const obj = new Fields();
+console.log(obj.x); // 0
+console.log(obj.#y); // error
+```
+
+#### Private instance methods and accessors
+[Proposal](https://github.com/tc39/proposal-private-methods)
+Add private methods and accessors (getter/setters).
+
+```js
+class Example {
+  #xValue = 0;
+
+  get #x() { 
+    return #xValue;
+  }
+
+  set #x(value) {
+    this.#xValue = value;
+  }
+
+  #add() {
+    this.#x = this.#x + 2;
+  }
+
+  constructor() {
+    this.#add();
+  }
+}
+
+```
+
+#### Static class fields and private static methods
+[Proposal](https://github.com/tc39/proposal-static-class-features)  
+
+```js
+class StaticMethodCall {
+  static #privateStaticProperty = 'private static property';
+  static staticProperty = 'static property';
+
+  static staticMethod() {
+  }
+  static #privateStaticMethod() {
+  }
+}
+StaticMethodCall.staticMethod();
+```
+
+### 2. RegExp Match Indices
+
+### 3. Top-level await
+
+### 4. Ergonomic brand checks for Private Fields
+[Proposal](https://github.com/tc39/proposal-private-fields-in-in) • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in#private_fields_and_methods) • [v8.dev](https://v8.dev/features/private-brand-checks)  
+Check if a private field exists in an object using the `in` operator.
+
+```js
+class C {
+  #brand;
+
+  #method() {}
+
+  get #getter() {}
+
+  static isC(obj) {
+    return #brand in obj && #method in obj && #getter in obj;
+  }
+}
+```
+
+✅ [Babel](https://babeljs.io/docs/en/babel-plugin-proposal-private-property-in-object)  
+🟡 [Typescript - in main](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#numeric-separators)  
+⛔ [SWC](https://swc.rs/docs/comparison-babel)  
+⛔ [Sucrase](https://github.com/alangpierce/sucrase#transforms)  
+✅ Chrome - Since v91  
+✅ Firefox - Since v90  
+🟡 Safari - In [technical preview 127](https://webkit.org/blog/11736/release-notes-for-safari-technology-preview-127/)  
+✅ Node - Since v16.4.0 (using v8 9.1)  
+CanIUse - Not available
+
 ## ECMAScript 2021 - 5 new features
 
 ### 1. Numeric separators [new syntax]
@@ -154,7 +253,7 @@ let x = (foo !== null && foo !== undefined) ? foo : bar();
 ✅ Node - Since v14.0.0  
 [CanIUse](https://caniuse.com/MDN-javascript_operators_nullish_coalescing)  
 
-### Optional Chaining [new syntax]
+### 3. Optional Chaining [new syntax]
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) • [v8.dev](https://v8.dev/features/optional-chaining)  
 The `?.` operator functions similarly to the `.` chaining operator, except that instead of causing an error if a reference is nullish (null or undefined), the expression short-circuits with a return value of undefined.
 
@@ -178,11 +277,11 @@ myForm.checkValidity?.()
 ✅ Node - Since v14.0.0  
 [CanIUse](https://caniuse.com/MDN-javascript_operators_optional_chaining)  
 
-### `for-in` mechanics [new behavior]
+### 4. for-in mechanics [new behavior]
 [Proposal](https://github.com/tc39/proposal-for-in-order)  
 Standardize the order of for-in loops.
 
-### globalThis [new object]
+### 5. globalThis [new object]
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis) • [v8.dev](https://v8.dev/features/globalthis)  
 Standard way to access the global object in all JavaScript environments (window in Browser, global in Node).
 
@@ -201,7 +300,7 @@ function canMakeHTTPRequest() {
 [Polyfill](https://github.com/zloirock/core-js#globalthis)  
 [CanIUse](https://caniuse.com/MDN-javascript_builtins_globalthis)  
 
-### Promise.allSettled [new method]
+### 6. Promise.allSettled [new method]
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled) • [v8.dev](https://v8.dev/features/promise-combinators)  
 `Promise.allSettled` is a new Promise method that returns a Promise that is fulfilled when all of the input promises are fulfilled or rejected.
 
@@ -219,7 +318,7 @@ const successfulPromises = results.filter(p => p.status === 'fulfilled');
 [Polyfill](https://github.com/zloirock/core-js#ecmascript-promise)  
 [CanIUse](https://caniuse.com/MDN-javascript_builtins_promise_allsettled)  
 
-### BigInt [new object]
+### 7. BigInt [new object]
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) • [v8.dev](https://v8.dev/features/bigint)  
 The `BigInt` type is a new numeric primitive in ECMAScript, which is a signed integer type.  
 BigInt would dynamically resize memory to fit the actual value.  
@@ -242,7 +341,7 @@ const huge = BigInt(9007199254740991)
 _Cannot be polyfilled_
 
 
-### Dynamic import - `import()` [new method]
+### 8. Dynamic import - `import()` [new method]
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports) • [v8.dev](https://v8.dev/features/dynamic-import)  
 Dynamic imports allows you to import modules at run-time.
 
@@ -265,7 +364,7 @@ import('/modules/my-module.js')
 ✅ Node - Since v13.2.0, [later enabled in v12.17.0](https://nodejs.org/en/blog/release/v12.17.0/)  
 [CanIUse](https://caniuse.com/es6-module-dynamic-import)  
 
-### String.prototype.matchAll [new method]
+### 9. String.prototype.matchAll [new method]
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll) • [v8.dev](https://v8.dev/features/string-matchall)  
 `matchAll` returns a array of matches matching a string or regex.
 
@@ -285,56 +384,56 @@ str.matchAll(regexp)
 
 ## ECMAScript 2019 - 8 new features
 
-### Array.prototype.{flat,flatMap}
+### 1. Array.prototype.{flat,flatMap}
 
-### String.prototype.{trimStart,trimEnd}
+### 2. String.prototype.{trimStart,trimEnd}
 
-### Well-formed JSON.stringify
+### 3. Well-formed JSON.stringify
 
-### Object.fromEntries
+### 4. Object.fromEntries
 
-### Function.prototype.toString revision
+### 5. Function.prototype.toString revision
 
-### Symbol.prototype.description
+### 6. Symbol.prototype.description
 
-### JSON superset
+### 7. JSON superset
 
-### Optional catch binding
+### 8. Optional catch binding
 
 ## ECMAScript 2018 - 8 new features
 
-### Asynchronous Iteration
+### 1. Asynchronous Iteration
 
-### Promise.prototype.finally
+### 2. Promise.prototype.finally
 
-### RegExp Unicode Property Escapes
+### 3. RegExp Unicode Property Escapes
 
-### RegExp Lookbehind Assertions
+### 4. RegExp Lookbehind Assertions
 
-### Rest/Spread Properties
+### 5. Rest/Spread Properties
 
-### RegExp named capture groups
+### 6. RegExp named capture groups
 
-### s (dotAll) flag for regular expressions
+### 7. `s` (`dotAll`) flag for regular expressions
 
-### Lifting template literal restriction
+### 8. Lifting template literal restriction
 
 ## ECMAScript 2017 - 6 new features
 
-### Shared memory and atomics
+### 1. Shared memory and atomics
 
-### Async functions
+### 2. Async functions
 
-### Trailing commas in function parameter lists and calls
+### 3. Trailing commas in function parameter lists and calls
 
-### Object.getOwnPropertyDescriptors
+### 4. Object.getOwnPropertyDescriptors
 
-### String padding
+### 5. String padding
 
-### Object.values/Object.entries
+### 6. Object.values/Object.entries
 
 ## ECMAScript 2016 - 2 new features
 
-### Exponentiation operator
+### 1. Exponentiation operator
 
-### Array.prototype.includes
+### 2. Array.prototype.includes
