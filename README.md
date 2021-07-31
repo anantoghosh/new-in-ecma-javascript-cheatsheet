@@ -1,9 +1,48 @@
 # What's new in ECMA / JavaScript cheat sheet
 
 ## ECMAScript 2022 - 4 Finished proposals
-### 1. Class Fields
+
+### 1. RegExp Match Indices
+[Proposal](https://github.com/tc39/proposal-regexp-match-indices) • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) • [v8.dev](https://v8.dev/features/regexp-match-indices)  
+Using the regex `d` flag, additionally return the start and end indices for individual capture groups on regex matches.
+
+```js
+/(?<x>a)(?<y>b)/d.exec('ab')
+// ['ab', 'a', 'b']
+
+/(?<x>a)(?<y>b)/d.exec('ab').indices
+// [[0, 2], [0, 1], [1, 2]]
+
+/(?<x>a)(?<y>b)/d.exec('ab').indices.groups
+// { x: [0, 1], y: [1, 2] }
+```
+✅ Chrome - Since v90  
+✅ Firefox - Since v89  
+🟡 Safari - Since v15? (not mentioned in release notes) [technical preview 122](https://webkit.org/blog/11577/release-notes-for-safari-technology-preview-122/)  
+✅ Node - Since v16.0.0 (v8 9.0)  
+CanIUse - unavailable
+
+### 2. Top-level await
+[Proposal](https://github.com/tc39/proposal-top-level-await) • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await#top_level_await) • [v8.dev](https://v8.dev/features/top-level-await)  
+use `await` outside async functions in a module.
+
+```js
+await Promise.resolve(console.log('🎉'));
+```
+
+✅ [Babel](https://babeljs.io/docs/en/babel-plugin-syntax-top-level-await)  
+✅ [Typescript - Since v3.8](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#top-level-await)  
+✅ [SWC](https://swc.rs/docs/comparison-babel)  
+✅ [Sucrase](https://sucrase.io/#selectedTransforms=imports&compareWithBabel=false&code=await%20Promise.resolve(console.log('%F0%9F%8E%89'))%3B)  
+✅ Chrome - Since v89  
+✅ Firefox - Since v89  
+🟡 Safari - Since v15 [technical preview 122](https://webkit.org/blog/11577/release-notes-for-safari-technology-preview-122/)  
+✅ Node - Since v16.4.0 (v8 9.1)  
+[CanIUse](https://caniuse.com/mdn-javascript_operators_await_top_level)
+
+### 3. Class Fields
 [v8.dev](https://v8.dev/features/class-fields) • [MDN-1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields) • [MDN-2](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)  
-#### Class Instance Fields
+#### a. Class Instance Fields
 [Proposal](https://github.com/tc39/proposal-class-fields)  
 Declare fields (`this.variable`) outside constructor. Create private fields which
 cannot be accessed from outside the class.
@@ -24,7 +63,7 @@ console.log(obj.x); // 0
 console.log(obj.#y); // error
 ```
 
-#### Private instance methods and accessors
+#### b. Private instance methods and accessors
 [Proposal](https://github.com/tc39/proposal-private-methods)  
 Add private methods and accessors (getter/setters).
 
@@ -51,7 +90,7 @@ class Example {
 
 ```
 
-#### Static class fields and private static methods
+#### c. Static class fields and private static methods
 [Proposal](https://github.com/tc39/proposal-static-class-features)  
 
 ```js
@@ -66,44 +105,6 @@ class StaticMethodCall {
 }
 StaticMethodCall.staticMethod();
 ```
-
-### 2. RegExp Match Indices
-[Proposal](https://github.com/tc39/proposal-regexp-match-indices) • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) • [v8.dev](https://v8.dev/features/regexp-match-indices)  
-Using the regex `d` flag, additionally return the start and end indices for individual capture groups on regex matches.
-
-```js
-/(?<x>a)(?<y>b)/d.exec('ab')
-// ['ab', 'a', 'b']
-
-/(?<x>a)(?<y>b)/d.exec('ab').indices
-// [[0, 2], [0, 1], [1, 2]]
-
-/(?<x>a)(?<y>b)/d.exec('ab').indices.groups
-// { x: [0, 1], y: [1, 2] }
-```
-✅ Chrome - Since v90  
-✅ Firefox - Since v89  
-🟡 Safari - Since v15? (not mentioned in release notes) [technical preview 122](https://webkit.org/blog/11577/release-notes-for-safari-technology-preview-122/)  
-✅ Node - Since v16.0.0 (v8 9.0)  
-CanIUse - unavailable
-
-### 3. Top-level await
-[Proposal](https://github.com/tc39/proposal-top-level-await) • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await#top_level_await) • [v8.dev](https://v8.dev/features/top-level-await)  
-use `await` outside async functions in a module.
-
-```js
-await Promise.resolve(console.log('🎉'));
-```
-
-✅ [Babel](https://babeljs.io/docs/en/babel-plugin-syntax-top-level-await)  
-✅ [Typescript - Since v3.8](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#top-level-await)  
-⛔ [SWC](https://swc.rs/docs/comparison-babel)  
-✅ [Sucrase](https://sucrase.io/#selectedTransforms=imports&compareWithBabel=false&code=await%20Promise.resolve(console.log('%F0%9F%8E%89'))%3B)  
-✅ Chrome - Since v89  
-✅ Firefox - Since v89  
-🟡 Safari - Since v15 [technical preview 122](https://webkit.org/blog/11577/release-notes-for-safari-technology-preview-122/)  
-✅ Node - Since v16.4.0 (v8 9.1)  
-[CanIUse](https://caniuse.com/mdn-javascript_operators_await_top_level)
 
 ### 4. Ergonomic brand checks for Private Fields
 [Proposal](https://github.com/tc39/proposal-private-fields-in-in) • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in#private_fields_and_methods) • [v8.dev](https://v8.dev/features/private-brand-checks)  
