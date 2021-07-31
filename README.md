@@ -420,20 +420,92 @@ str.matchAll(regexp)
 ## ECMAScript 2019 - 8 new features
 
 ### 1. Array.prototype.{flat,flatMap}
+[Proposal](https://github.com/tc39/proposal-flatMap) • [MDN-flat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat) • [MDN-flatMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap) • [v8.dev](https://v8.dev/features/array-flat-flatmap)  
+`flat` - Create a new array with sub-array elements concatenated into it recursively up to the specified depth.  
+`flatMap` - Map over and flatten an array (to 1 level). Equivalent to running `Array.prototype.map` then `Array.prototype.flat` with depth 1.
+
+```js
+const arr2 = [0, 1, 2, [[[3, 4]]]];
+
+console.log(arr2.flat(3));
+// [0, 1, 2, 3, 4]
+
+let arr = [[1, 3], [4, 6], [7, 9], [10, 12]];
+
+console.log(arr.flatMap(x => [x[0], (x[0] + x[1]) / 2, x[1]]));
+// [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+```
+[CanIUse](https://caniuse.com/array-flat)
 
 ### 2. String.prototype.{trimStart,trimEnd}
+[Proposal](https://github.com/tc39/proposal-string-left-right-trim) • [MDN-trimStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimStart) • [MDN-trimEnd](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimEnd) • [v8.dev](https://v8.dev/features/string-trimming)  
+
+```js
+const string = '  hello world  ';
+string.trimStart();
+// 'hello world  '
+
+string.trimEnd();
+// '  hello world'
+```
+
+[CanIUse - trimStart](https://caniuse.com/mdn-javascript_builtins_string_trimstart)  
+[CanIUse - trimEnd](https://caniuse.com/mdn-javascript_builtins_string_trimend)
 
 ### 3. Well-formed JSON.stringify
+[Proposal](https://github.com/tc39/proposal-well-formed-stringify) • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#well-formed_json.stringify) • [v8.dev](https://v8.dev/features/well-formed-json-stringify)  
+Stringify lone surrogates i.e. any code point from U+D800 to U+DFFF, using Unicode escape sequences.
+Before this change JSON.stringify would output lone surrogates if the input contained any lone surrogates; such strings could not be encoded in valid UTF-8 or UTF-16:
 
+```js
+// Before
+JSON.stringify("\uD800"); // '"�"'
+
+// After
+JSON.stringify("\uD800"); // '"\\ud800"'
+
+```
 ### 4. Object.fromEntries
+[Proposal](https://github.com/tc39/proposal-object-from-entries) • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries) • [v8.dev](https://v8.dev/features/object-fromentries)  
+It accepts an iterable of key-value pairs and returns a new object whose own keys and corresponding values are given by those pairs.
+
+```js
+obj = Object.fromEntries([['a', 0], ['b', 1]]);
+// { a: 0, b: 1 }
+```
+[CanIUse](https://caniuse.com/mdn-javascript_builtins_object_fromentries)
 
 ### 5. Function.prototype.toString revision
+[Proposal](https://tc39.es/Function-prototype-toString-revision/) • [ExploringJS](https://exploringjs.com/es2018-es2019/ch_function-prototype-tostring-revision.html)  
+
 
 ### 6. Symbol.prototype.description
+[Proposal](https://tc39.es/proposal-Symbol-description/) • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description) • [v8.dev](https://v8.dev/features/symbol-description)  
+
+```js
+const symbol = Symbol('foo');
+symbol.description;
+// 'foo'
+```
+[CanIUse](https://caniuse.com/symbol-description)
 
 ### 7. JSON superset
+[Proposal](https://github.com/tc39/proposal-json-superset) • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/superset) • [v8.dev](https://v8.dev/features/subsume-json)  
+JSON becomes a syntactic subset of ECMAScript. Before this, ECMAScript string literals couldn’t contain unescaped U+2028 LINE SEPARATOR and U+2029 PARAGRAPH SEPARATOR characters which JSON could have.  
+
+[CanIUse](https://caniuse.com/mdn-javascript_builtins_json_json_superset)
 
 ### 8. Optional catch binding
+[Proposal](https://github.com/tc39/proposal-optional-catch-binding) • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch) • [v8.dev](https://v8.dev/features/optional-catch-binding)
+
+```js
+try {
+  doSomethingThatMightThrow();
+} catch { // catch parameter is now optional
+  handleException();
+}
+```
+[CanIUse](https://caniuse.com/mdn-javascript_statements_try_catch_optional_catch_binding)
 
 ## ECMAScript 2018 - 8 new features
 
