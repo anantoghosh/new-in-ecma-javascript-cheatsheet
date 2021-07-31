@@ -37,7 +37,7 @@ await Promise.resolve(console.log('🎉'));
 ✅ Chrome - Since v89  
 ✅ Firefox - Since v89  
 🟡 Safari - Since v15 [technical preview 122](https://webkit.org/blog/11577/release-notes-for-safari-technology-preview-122/)  
-✅ Node - Since v16.4.0 (v8 9.1)  
+✅ Node - Since v16.4.0 - not in commonjs modules (v8 9.1)  
 [CanIUse](https://caniuse.com/mdn-javascript_operators_await_top_level)
 
 ### 3. Class Fields
@@ -125,7 +125,7 @@ class C {
 ```
 
 ✅ [Babel](https://babeljs.io/docs/en/babel-plugin-proposal-private-property-in-object)  
-🟡 [Typescript - in main](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#numeric-separators)  
+⛔ [Typescript](https://github.com/microsoft/TypeScript/pull/44648)  
 ⛔ [SWC](https://swc.rs/docs/comparison-babel)  
 ⛔ [Sucrase](https://github.com/alangpierce/sucrase#transforms)  
 ✅ Chrome - Since v91  
