@@ -68,7 +68,7 @@ StaticMethodCall.staticMethod();
 ```
 
 ### 2. RegExp Match Indices
-[Proposal](https://github.com/tc39/proposal-regexp-match-indices) • [MDN]() • [v8.dev](https://v8.dev/features/regexp-match-indices)  
+[Proposal](https://github.com/tc39/proposal-regexp-match-indices) • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) • [v8.dev](https://v8.dev/features/regexp-match-indices)  
 Using the regex `d` flag, additionally return the start and end indices for individual capture groups on regex matches.
 
 ```js
@@ -84,7 +84,7 @@ Using the regex `d` flag, additionally return the start and end indices for indi
 ✅ Chrome - Since v90  
 ✅ Firefox - Since v89  
 🟡 Safari - Since v15? (not mentioned in release notes) [technical preview 122](https://webkit.org/blog/11577/release-notes-for-safari-technology-preview-122/)  
-✅ Node - Since v16.4.0  
+✅ Node - Since v16.0.0 (v8 9.0)  
 CanIUse - unavailable
 
 ### 3. Top-level await
@@ -102,7 +102,7 @@ await Promise.resolve(console.log('🎉'));
 ✅ Chrome - Since v89  
 ✅ Firefox - Since v89  
 🟡 Safari - Since v15 [technical preview 122](https://webkit.org/blog/11577/release-notes-for-safari-technology-preview-122/)  
-✅ Node - Since v16.4.0  
+✅ Node - Since v16.4.0 (v8 9.1)  
 [CanIUse](https://caniuse.com/mdn-javascript_operators_await_top_level)
 
 ### 4. Ergonomic brand checks for Private Fields
@@ -129,8 +129,8 @@ class C {
 ⛔ [Sucrase](https://github.com/alangpierce/sucrase#transforms)  
 ✅ Chrome - Since v91  
 ✅ Firefox - Since v90  
-🟡 Safari - Since v15 [technical preview 127](https://webkit.org/blog/11736/release-notes-for-safari-technology-preview-127/)  
-✅ Node - Since v16.4.0 (using v8 9.1)  
+🟡 Safari - Since v15? (not mentioned in release notes) [technical preview 127](https://webkit.org/blog/11736/release-notes-for-safari-technology-preview-127/)  
+✅ Node - Since v16.4.0 (v8 9.1)  
 CanIUse - Not available
 
 ## ECMAScript 2021 - 5 new features
