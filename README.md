@@ -401,13 +401,19 @@ import('/modules/my-module.js')
 
 ### 9. String.prototype.matchAll [new method]
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll) • [v8.dev](https://v8.dev/features/string-matchall)  
-`matchAll` returns a array of matches matching a string or regex.
+`matchAll` returns a RegExpStringIterator of matches matching a string or regex also with capture groups.
 
 ```js
 const regexp = /t(e)(st(\d?))/g;
 const str = 'test1test2';
 
-str.matchAll(regexp)
+const match = str.matchAll(regexp);
+
+for (const m of str.matchAll(regexp)) {
+  console.log(m);
+}
+// ["test1", "e", "st1", "1"]
+// ["test2", "e", "st2", "2"]
 ```
 
 ✅ [Typescript lib - Since v3.8](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#es2020-for-target-and-module)  
@@ -415,7 +421,7 @@ str.matchAll(regexp)
 ✅ Firefox - Since v67  
 ✅ Safari - Since v11.1 (iOS Safari v11.3)   
 ✅ Node - Since v13.2.0, [later enabled in v12.17.0](https://nodejs.org/en/blog/release/v12.17.0/)  
-[CanIUse](https://caniuse.com/MDN-javascript_builtins_string_matchall)  
+[CanIUse](https://caniuse.com/mdn-javascript_builtins_string_matchall)  
 
 ## ECMAScript 2019 - 8 new features
 
@@ -510,7 +516,7 @@ try {
 ## ECMAScript 2018 - 8 new features
 
 ### 1. Asynchronous Iteration
-
+[Proposal](https://github.com/tc39/proposal-async-iteration) • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of) • [v8.dev](https://v8.dev/features/async-iteration)
 ### 2. Promise.prototype.finally
 
 ### 3. RegExp Unicode Property Escapes
@@ -524,6 +530,7 @@ try {
 ### 7. `s` (`dotAll`) flag for regular expressions
 
 ### 8. Lifting template literal restriction
+[Proposal]() • [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Lifting_template_literal_restrictions) • [v8.dev](https://v8.dev/features/lifted-template-literals)
 
 ## ECMAScript 2017 - 6 new features
 
