@@ -152,7 +152,7 @@ let budget = 1_000_000_000_000;
 ✅ Firefox - Since v70  
 ✅ Safari - Since v13  
 ✅ Node - Since v12.5.0  
-[CanIUse](https://caniuse.com/MDN-javascript_grammar_numeric_separators)
+[CanIUse](https://caniuse.com/mdn-javascript_grammar_numeric_separators)
 
 ### 2. Logical Assignment Operators [new syntax]
 [MDN](https://github.com/tc39/proposal-logical-assignment) • [v8.dev](https://v8.dev/features/logical-assignment)  
@@ -202,7 +202,7 @@ if (obj) {
 ✅ Firefox - Since v79  
 ✅ Safari - Since v14 (iOS Safari v14.7)  
 ✅ [Node - Since v14.6.0](https://v8.dev/blog/v8-release-84#weak-references-and-finalizers)  
-[CanIUse](https://caniuse.com/MDN-javascript_builtins_weakref)  
+[CanIUse](https://caniuse.com/mdn-javascript_builtins_weakref)  
 _Cannot be polyfilled_
 
 ### 4. Promise.any [new method]
@@ -241,7 +241,7 @@ const withSpaces = queryString.replaceAll('+', ' ');
 ✅ Firefox - Since v77  
 ✅ Safari - Since v13.1  
 ✅ [Node - Since v15.0.0](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V15.md#v8-86---35415)  
-[CanIUse](https://caniuse.com/MDN-javascript_builtins_string_replaceall)  
+[CanIUse](https://caniuse.com/mdn-javascript_builtins_string_replaceall)  
 [Polyfill](https://github.com/zloirock/core-js#stringreplaceall)
 
 ## ECMAScript 2020 - 9 new features
@@ -265,7 +265,7 @@ console.log(import.meta); // { url: "<url>" }
 ✅ Firefox - Since v62  
 ✅ Safari - Since v11.1 (iOS Safari v12)  
 ✅ Node - Since v10.4.0  
-[CanIUse](https://caniuse.com/MDN-javascript_statements_import_meta)  
+[CanIUse](https://caniuse.com/mdn-javascript_statements_import_meta)  
 
 ### 2. Nullish coalescing Operator [new syntax]
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator) • [v8.dev](https://v8.dev/features/nullish-coalescing)  
@@ -286,7 +286,7 @@ let x = (foo !== null && foo !== undefined) ? foo : bar();
 ✅ Firefox - Since v72  
 ✅ Safari - Since v13.1 (iOS Safari v13.7)  
 ✅ Node - Since v14.0.0  
-[CanIUse](https://caniuse.com/MDN-javascript_operators_nullish_coalescing)  
+[CanIUse](https://caniuse.com/mdn-javascript_operators_nullish_coalescing)  
 
 ### 3. Optional Chaining [new syntax]
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) • [v8.dev](https://v8.dev/features/optional-chaining)  
@@ -310,7 +310,7 @@ myForm.checkValidity?.()
 ✅ Firefox - Since v72  
 ✅ Safari - Since v13.1 (iOS Safari v13.7)  
 ✅ Node - Since v14.0.0  
-[CanIUse](https://caniuse.com/MDN-javascript_operators_optional_chaining)  
+[CanIUse](https://caniuse.com/mdn-javascript_operators_optional_chaining)  
 
 ### 4. for-in mechanics [new behavior]
 [Proposal](https://github.com/tc39/proposal-for-in-order)  
@@ -333,7 +333,7 @@ function canMakeHTTPRequest() {
 ✅ Safari - Since v12.1 (iOS Safari v12.2)  
 ✅ Node - Since v12.0.0  
 [Polyfill](https://github.com/zloirock/core-js#globalthis)  
-[CanIUse](https://caniuse.com/MDN-javascript_builtins_globalthis)  
+[CanIUse](https://caniuse.com/mdn-javascript_builtins_globalthis)  
 
 ### 6. Promise.allSettled [new method]
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled) • [v8.dev](https://v8.dev/features/promise-combinators)  
@@ -351,7 +351,7 @@ const successfulPromises = results.filter(p => p.status === 'fulfilled');
 ✅ Safari - Since v13  
 ✅ Node - Since v12.0.0  
 [Polyfill](https://github.com/zloirock/core-js#ecmascript-promise)  
-[CanIUse](https://caniuse.com/MDN-javascript_builtins_promise_allsettled)  
+[CanIUse](https://caniuse.com/mdn-javascript_builtins_promise_allsettled)  
 
 ### 7. BigInt [new object]
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) • [v8.dev](https://v8.dev/features/bigint)  
